@@ -10,11 +10,11 @@
 </div>
 
 <hr>
-<div class="alert alert-danger">
-    I'cant find nothing with the string jakfjdlas
+<div *ngIf="error" class="alert alert-danger">
+    I'cant find nothing with the string {{ termino }}
 </div>
 
-<div class="row">
+<div *ngIf="!error" class="row">
     <div class="col">
 
         <table class="table table-hover">

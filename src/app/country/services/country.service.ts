@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+// import { catchError } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +19,10 @@ export class CountryService {
 
     const url = `${ this.apiUrl }${ this.searchCountryPath }${ termino }`;
     return this.http.get( url );
+    // return this.http.get( url )
+    //         .pipe(
+    //           catchError( err => of([]) )
+    //         );
   }
 
 
