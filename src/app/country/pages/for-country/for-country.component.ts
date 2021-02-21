@@ -17,8 +17,8 @@ constructor( private countryService: CountryService) { }
 search() {
   this.error = false;
   this.countryService.searchCountry( this.termino )
-    .subscribe( (resp) => {
-      console.log(resp);
+    .subscribe( (countries) => {
+      console.log(countries);
       
     }, (err) => {
       this.error = true;
