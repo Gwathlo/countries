@@ -14,7 +14,7 @@
     I'cant find nothing with the string {{ termino }}
 </div>
 
-<div *ngIf="!error" class="row">
+<div *ngIf="countries.length > 0" class="row">
     <div class="col">
 
         <table class="table table-hover">
@@ -30,13 +30,13 @@
 
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>flag</td>
-                    <td>name</td>
-                    <td>78437284</td>
+                <tr *ngFor="let country of countries; let i=index">
+                    <td>{{ i+1 }}</td>
+                    <td><img [src]="country.flag" class="small-flag" alt=""></td>
+                    <td>{{ country.name }}</td>
+                    <td>{{ country.population | number }}</td>
                     <td>
-                        <a href="">More...</a>
+                        <a [routerLink]="['/country', country.alpha2Code]">More...</a>
                     </td>
                 </tr>
             </tbody>
