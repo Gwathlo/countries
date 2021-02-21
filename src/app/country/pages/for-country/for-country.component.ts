@@ -10,10 +10,10 @@ export class ForCountryComponent {
 
 termino: string = 'Hi world';
 
-  constructor() { }
+constructor() { }
 
 search() {
-  
+
 }
 
 }
