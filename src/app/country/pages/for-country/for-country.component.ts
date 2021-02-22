@@ -28,4 +28,8 @@ export class ForCountryComponent {
       }
     );
   }
+
+  suggestions(termino: string) {
+    this.error = false;
+  }
 }
