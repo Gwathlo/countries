@@ -6,19 +6,24 @@ import { ForCountryComponent } from './pages/for-country/for-country.component';
 import { ForRegionComponent } from './pages/for-region/for-region.component';
 import { ViewCountryComponent } from './pages/view-country/view-country.component';
 import { RouterModule } from '@angular/router';
-
-
-
+import { CountryTableComponent } from './components/country-table/country-table.component';
+import { CountryInputComponent } from './components/country-input/country-input.component';
 
 @NgModule({
-  declarations: [ForCapitalComponent, ForCountryComponent, ForRegionComponent, ViewCountryComponent],
-  exports: [
-    ForCapitalComponent, ForCountryComponent, ForRegionComponent, ViewCountryComponent
+  declarations: [
+    ForCapitalComponent,
+    ForCountryComponent,
+    ForRegionComponent,
+    ViewCountryComponent,
+    CountryTableComponent,
+    CountryInputComponent,
   ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    RouterModule
-  ]
+  exports: [
+    ForCapitalComponent,
+    ForCountryComponent,
+    ForRegionComponent,
+    ViewCountryComponent,
+  ],
+  imports: [CommonModule, FormsModule, RouterModule],
 })
-export class CountryModule { }
+export class CountryModule {}
