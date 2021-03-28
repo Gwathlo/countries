@@ -1,12 +1,13 @@
-<h2>By Capital City</h2>
-<hr>
+<div class="animate__animated animate__fadeIn animate__faster">
+    <h2>By Capital City</h2>
+    <hr>
 
-<div class="row">
-    <div class="col">
-        <app-country-input (onEnter)="search( $event )" (onDebounce)="suggestions( $event )" placeholder="Search capital..."></app-country-input>
+    <div class="row">
+        <div class="col">
+            <app-country-input (onEnter)="search( $event )" (onDebounce)="suggestions( $event )" placeholder="Search capital..."></app-country-input>
+        </div>
     </div>
 </div>
-
 <hr>
 <div *ngIf="error" class="alert alert-danger">
     I'cant find nothing with the string {{ termino }}
