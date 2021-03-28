@@ -16,3 +16,11 @@
 
     </div>
 </div>
+<hr>
+
+<div *ngIf="countries.length > 0" class="row">
+    <div class="col">
+        <app-country-table [countries]="countries"></app-country-table>
+
+    </div>
+</div>

@@ -11,6 +11,7 @@ export class CountryService {
   private apiUrl: string = 'https://restcountries.eu/rest/v2';
   private searchCountryPath: string = '/name/';
   private searchCapitalPath: string = '/capital/';
+  private searchRegion: string = '/region/';
   private getCountryPath: string = '/alpha/';
 
   constructor(private http: HttpClient) {}
@@ -32,5 +33,10 @@ export class CountryService {
   getCountryByCode(id: string): Observable<Country> {
     const url = `${this.apiUrl}${this.getCountryPath}${id}`;
     return this.http.get<Country>(url);
+  }
+
+  searchByRegion(region: string): Observable<Country[]> {
+    const url = `${this.apiUrl}${this.searchRegion}${region}`;
+    return this.http.get<Country[]>(url);
   }
 }

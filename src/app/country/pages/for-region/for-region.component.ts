@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Country } from '../../interfaces/country.interface';
+import { CountryService } from '../../services/country.service';
 
 @Component({
   selector: 'app-for-region',
@@ -14,8 +16,9 @@ import { Component } from '@angular/core';
 export class ForRegionComponent {
   regions: string[] = ['africa', 'americas', 'asia', 'europe', 'oceania'];
   activatedRegion: string = '';
+  countries: Country[] = [];
 
-  constructor() {}
+  constructor(private countryService: CountryService) {}
 
   getClass(region: string): string {
     return region === this.activatedRegion
@@ -24,8 +27,12 @@ export class ForRegionComponent {
   }
 
   activeRegion(region: string) {
-    this.activatedRegion = region;
-
-    // TODO service call
+    if (region !== this.activatedRegion) {
+      this.activatedRegion = region;
+      this.countries = [];
+      this.countryService
+        .searchByRegion(region)
+        .subscribe((countries) => (this.countries = countries));
+    }
   }
 }
