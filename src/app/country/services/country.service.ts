@@ -11,6 +11,7 @@ export class CountryService {
   private apiUrl: string = 'https://restcountries.eu/rest/v2';
   private searchCountryPath: string = '/name/';
   private searchCapitalPath: string = '/capital/';
+  private getCountryPath: string = '/alpha/';
 
   constructor(private http: HttpClient) {}
 
@@ -26,5 +27,10 @@ export class CountryService {
   searchCapital(termino: string): Observable<Country[]> {
     const url = `${this.apiUrl}${this.searchCapitalPath}${termino}`;
     return this.http.get<Country[]>(url);
+  }
+
+  getCountryByCode(id: string): Observable<Country> {
+    const url = `${this.apiUrl}${this.getCountryPath}${id}`;
+    return this.http.get<Country>(url);
   }
 }
