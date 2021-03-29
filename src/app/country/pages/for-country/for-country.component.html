@@ -7,6 +7,16 @@
             <app-country-input (onEnter)="search( $event )" (onDebounce)="suggestions( $event )" placeholder="Search country..."></app-country-input>
         </div>
     </div>
+
+    <ul *ngIf="showSuggestions" class="list-group">
+        <li *ngFor="let country of suggestedCountries" class="list-group-item list-group-item-action">
+            <a class="nav-link" [routerLink]="[ '/country', country.alpha2Code ]"> {{ country.name }}</a>
+        </li>
+        <li class="list-group-item list-group-item-action" (click)="searchSuggestion( termino )">
+            <a class="nav-link"> Search "{{ termino }}"</a>
+        </li>
+    </ul>
+
 </div>
 <hr>
 <div *ngIf="error" class="alert alert-danger">
